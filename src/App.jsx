@@ -407,12 +407,25 @@ function App() {
             </div>
           </div>
 
-          <footer className="mt-20 border-t border-white/5 pt-10 text-center">
-            <div className="flex flex-col items-center gap-4">
-              <img src={site?.brand?.logo} alt="" className="h-8 w-auto opacity-50 grayscale hover:grayscale-0 transition-all" />
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/20">
-                © {new Date().getFullYear()} {site?.workshopName || 'Kembla\'s Garage'}
-              </p>
+          <footer className="mt-20 border-t border-white/5 pt-10 pb-10 text-center">
+            <div className="flex flex-col items-center gap-6">
+              <div className="flex flex-col items-center gap-4">
+                <img
+                  src="/logokemblas.jpg"
+                  alt="Kembla's Garage León"
+                  className="h-20 w-20 rounded-full border-2 border-white/10 object-cover shadow-2xl transition-all duration-500 hover:scale-110"
+                />
+                <img src={site?.brand?.logo} alt="" className="h-6 w-auto opacity-30 grayscale hover:grayscale-0 transition-all" />
+              </div>
+              
+              <div className="space-y-2">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20">
+                  © {new Date().getFullYear()} {site?.workshopName || 'Kembla\'s Garage'} · Todos los derechos reservados
+                </p>
+                <p className="text-[9px] font-medium uppercase tracking-widest text-white/10">
+                  Powered by <span className="text-white/30">Torres Ingeniería</span>
+                </p>
+              </div>
             </div>
           </footer>
         </section>
