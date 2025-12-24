@@ -1,0 +1,41 @@
+[
+  {
+    "id": "demo-1",
+    "title": "Trabajo realizado (demo)",
+    "vehicle": "Vehículo / Placa",
+    "avatar": "/works/placeholder.svg",
+    "serviceId": "premium",
+    "summary": "Pulido + interior + protección",
+    "beforePhotos": ["/works/placeholder.svg"],
+    "afterPhotos": ["/works/placeholder.svg"],
+    "notes": ["Cualquier detalle o nota corta sobre el proceso."],
+    "productsUsed": [
+      {
+        "name": "Shampoo neutro",
+        "detail": "Lavado seguro"
+      },
+      {
+        "name": "Sellante",
+        "detail": "Protección y brillo"
+      }
+    ]
+  },
+  {
+    "id": "demo-2",
+    "title": "Trabajo realizado (demo 2)",
+    "vehicle": "Vehículo / Placa",
+    "avatar": "/works/placeholder.svg",
+    "serviceId": "interior",
+    "summary": "Interior profundo + sanitización",
+    "beforePhotos": ["/works/placeholder.svg"],
+    "afterPhotos": ["/works/placeholder.svg"],
+    "notes": ["Recomendación de mantenimiento: limpieza semanal y protector UV."],
+    "productsUsed": [
+      {
+        "name": "Limpiador multiusos",
+        "detail": "Plásticos y superficies"
+      }
+    ]
+  }
+]
+

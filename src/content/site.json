@@ -1,0 +1,37 @@
+{
+  "workshopName": "Kembla's Garage",
+  "tagline": "Detailing automotriz",
+  "hero": {
+    "title": "Detailing premium para tu carro",
+    "subtitle": "Pulido, interior, protección y más. Resultados que se notan."
+  },
+  "cta": {
+    "primaryLabel": "Cotizar por WhatsApp",
+    "whatsappMessage": "Hola, quiero una cotización para detailing."
+  },
+  "contact": {
+    "whatsappPhone": "+57 310 8911606",
+    "instagram": "https://www.instagram.com/kemblas.garage/",
+    "tiktok": "",
+    "address": "",
+    "city": "Medellín - Barranquilla"
+  },
+  "currency": {
+    "locale": "es-CO",
+    "code": "COP"
+  },
+  "brand": {
+    "logo": "/brand/logo.svg",
+    "ogImage": "/brand/og.svg"
+  },
+  "certificate": {
+    "title": "Certificación Oficial",
+    "description": "Completamente capacitados para atender tu patrimonio.",
+    "image": "/certificado.svg"
+  },
+  "media": {
+    "heroReel": "https://www.instagram.com/reel/DPwuIskEt0S/",
+    "featuredReel": "https://www.instagram.com/reel/DPwtmWcEoXL/"
+  }
+}
+

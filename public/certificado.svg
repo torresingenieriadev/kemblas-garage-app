@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Certificado VONIXX">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f6f8"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="stripe" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6b778f"/>
+      <stop offset="1" stop-color="#7f8aa0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#g1)"/>
+
+  <!-- Decorative stripes (approximation of attached image) -->
+  <polygon points="0,0 260,0 0,420" fill="url(#stripe)"/>
+  <polygon points="140,0 420,0 0,620 0,520" fill="#8a95ab" opacity="0.55"/>
+  <polygon points="260,0 540,0 60,720 0,720" fill="#aab2c1" opacity="0.35"/>
+  <polygon points="820,0 1200,0 1200,160 980,0" fill="#e9edf2" opacity="0.8"/>
+  <polygon points="920,0 1200,0 1200,260 1080,0" fill="#eef2f6" opacity="0.9"/>
+
+  <!-- Main text -->
+  <text x="760" y="210" text-anchor="middle" fill="#1f2a44"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="54" font-weight="800" letter-spacing="1">
+    CERTIFICADO
+  </text>
+
+  <text x="760" y="255" text-anchor="middle" fill="#7b879a"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="20" font-weight="500">
+    VONIXX tiene el honor de conceder al
+  </text>
+
+  <text x="760" y="340" text-anchor="middle" fill="#1b3a78"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="34" font-weight="500">
+    JHON PERDOMO DIAZ
+  </text>
+  <line x1="510" y1="355" x2="1010" y2="355" stroke="#c6ceda" stroke-width="2"/>
+
+  <text x="760" y="395" text-anchor="middle" fill="#32405a"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="18" font-weight="500">
+    Certificado de participación del curso
+  </text>
+
+  <text x="760" y="440" text-anchor="middle" fill="#1f2a44"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="22" font-weight="800" letter-spacing="0.5">
+    LAVADO DETALLADO 2.0
+  </text>
+
+  <text x="760" y="475" text-anchor="middle" fill="#32405a"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="18" font-weight="500">
+    Con una carga horária de 4h/clase
+  </text>
+
+  <!-- Signature (stylized) -->
+  <path d="M670 545c20-18 36-28 52-32 18-5 22 6 9 16-10 8-22 14-30 16 18-4 40-9 52-6 18 5 8 20-20 24-18 3-36 0-56-8"
+        fill="none" stroke="#1f2a44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+  <line x1="640" y1="575" x2="880" y2="575" stroke="#c6ceda" stroke-width="2"/>
+
+  <text x="760" y="610" text-anchor="middle" fill="#1f2a44"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="16" font-weight="700">
+    Paulo Henrique Nobre
+  </text>
+  <text x="760" y="635" text-anchor="middle" fill="#1f2a44"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="14" font-weight="700">
+    CEO
+  </text>
+
+  <text x="760" y="700" text-anchor="middle" fill="#1f2a44"
+        font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="44" font-weight="900" letter-spacing="2">
+    VONIXX
+  </text>
+</svg>
+

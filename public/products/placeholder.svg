@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Producto (placeholder)">
+  <rect width="800" height="600" rx="32" fill="#0B0B10"/>
+  <rect x="28" y="28" width="744" height="544" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)"/>
+  <path d="M290 178c0-12 10-22 22-22h176c12 0 22 10 22 22v18c0 11-8 20-18 22v18h-184v-18c-10-2-18-11-18-22v-18Z" fill="rgba(255,255,255,0.16)"/>
+  <rect x="308" y="236" width="184" height="220" rx="24" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="330" y="270" width="140" height="18" rx="9" fill="rgba(255,255,255,0.18)"/>
+  <rect x="330" y="302" width="110" height="14" rx="7" fill="rgba(255,255,255,0.12)"/>
+  <text x="50%" y="520" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="18" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
+    Reemplaza esta imagen por la foto real del producto
+  </text>
+</svg>
+

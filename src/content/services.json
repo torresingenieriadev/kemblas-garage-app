@@ -1,0 +1,48 @@
+[
+  {
+    "id": "economico",
+    "name": "Lavado Económico",
+    "priceFrom": 80000,
+    "duration": "1–2 horas",
+    "description": "Limpieza eficiente y segura para el mantenimiento regular de tu vehículo.",
+    "bullets": [
+      "Lavado exterior con shampoo pH neutro",
+      "Aspirado interior básico",
+      "Limpieza de vidrios y rines",
+      "Hidratación básica de llantas"
+    ]
+  },
+  {
+    "id": "muebles",
+    "name": "Muebles y Colchones",
+    "priceFrom": 100000,
+    "duration": "2–4 horas",
+    "description": "Limpieza profunda y desinfección a domicilio para tu hogar.",
+    "bullets": [
+      "Succión de ácaros y polvo",
+      "Lavado profundo con máquina de inyección/succión",
+      "Eliminación de manchas y olores",
+      "Secado rápido y aromatización"
+    ]
+  },
+  {
+    "id": "premium",
+    "name": "Servicio Premium",
+    "priceFrom": 300000,
+    "duration": "3–5 horas",
+    "description": "Detalle completo pensado para recuperar brillo, profundidad y limpieza interior.",
+    "bullets": [
+      "Lavado seguro + descontaminación",
+      "Pulido (según estado) + protección",
+      "Interior (aspirado + limpieza profunda)"
+    ]
+  },
+  {
+    "id": "interior",
+    "name": "Detalle Interior",
+    "priceFrom": 120000,
+    "duration": "2–3 horas",
+    "description": "Enfoque en tapicería, plásticos y sanitización.",
+    "bullets": ["Aspirado detallado", "Limpieza de plásticos", "Aromatización"]
+  }
+]

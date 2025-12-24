@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      ;(() => {
+        const theme = localStorage.getItem('theme')
+        const root = document.documentElement
+
+        if (theme === 'light') {
+          root.classList.remove('dark')
+          root.classList.add('light')
+        } else {
+          root.classList.add('dark')
+          root.classList.remove('light')
+        }
+      })()
+    </script>
+    <meta
+      name="description"
+      content="Servicios de detailing automotriz, productos y trabajos realizados."
+    />
+    <meta name="theme-color" content="#09090b" />
+    <meta property="og:title" content="Kembla's Garage" />
+    <meta
+      property="og:description"
+      content="Servicios de detailing automotriz, productos y trabajos realizados."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/brand/og.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="/brand/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kembla's Garage</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
