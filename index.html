@@ -2,20 +2,6 @@
 <html lang="es" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <script>
-      ;(() => {
-        const theme = localStorage.getItem('theme')
-        const root = document.documentElement
-
-        if (theme === 'light') {
-          root.classList.remove('dark')
-          root.classList.add('light')
-        } else {
-          root.classList.add('dark')
-          root.classList.remove('light')
-        }
-      })()
-    </script>
     <meta
       name="description"
       content="Servicios de detailing automotriz, productos y trabajos realizados."
@@ -34,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kembla's Garage</title>
   </head>
-  <body>
+  <body class="bg-zinc-950 text-zinc-100">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

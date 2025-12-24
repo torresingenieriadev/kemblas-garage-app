@@ -16,7 +16,7 @@ function WhatsAppIcon(props) {
   )
 }
 
-export function Navbar({ site, theme, onToggleTheme }) {
+export function Navbar({ site }) {
   const workshopName = site?.workshopName || 'Taller'
   const logoSrc = site?.brand?.logo
   const instagramUrl = site?.contact?.instagram
@@ -24,24 +24,24 @@ export function Navbar({ site, theme, onToggleTheme }) {
   const whatsappUrl = whatsappPhone ? `https://wa.me/${whatsappPhone}` : null
 
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-200/70 bg-white/70 backdrop-blur dark:border-white/10 dark:bg-zinc-950/70">
+    <header className="sticky top-0 z-40 border-b border-white/5 bg-zinc-950/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3">
         <a href="#inicio" className="flex min-w-0 items-center gap-3">
           {logoSrc ? (
             <img
               src={logoSrc}
               alt={workshopName}
-              className="h-10 w-auto shrink-0 sm:h-12"
+              className="h-10 w-auto shrink-0 sm:h-12 brightness-110"
             />
           ) : (
-            <div className="h-9 w-9 shrink-0 rounded-xl bg-zinc-100 dark:bg-white/10" />
+            <div className="h-9 w-9 shrink-0 rounded-xl bg-white/10" />
           )}
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold tracking-wide text-zinc-900 dark:text-white">
+            <p className="truncate text-sm font-semibold tracking-wide text-white">
               {workshopName}
             </p>
             {site?.tagline ? (
-              <p className="truncate text-xs text-zinc-600 dark:text-white/60">
+              <p className="truncate text-xs text-white/60">
                 {site.tagline}
               </p>
             ) : null}
@@ -51,43 +51,43 @@ export function Navbar({ site, theme, onToggleTheme }) {
         <nav className="ml-auto hidden items-center gap-5 text-sm lg:flex">
           <a
             href="#servicios"
-            className="text-zinc-700 hover:text-zinc-900 dark:text-white/70 dark:hover:text-white"
+            className="text-white/70 hover:text-white transition-colors"
           >
             Servicios
           </a>
           <a
             href="#destacado"
-            className="text-zinc-700 hover:text-zinc-900 dark:text-white/70 dark:hover:text-white"
+            className="text-white/70 hover:text-white transition-colors"
           >
             Destacado
           </a>
           <a
             href="#proceso"
-            className="text-zinc-700 hover:text-zinc-900 dark:text-white/70 dark:hover:text-white"
+            className="text-white/70 hover:text-white transition-colors"
           >
             Proceso
           </a>
           <a
             href="#trabajos"
-            className="text-zinc-700 hover:text-zinc-900 dark:text-white/70 dark:hover:text-white"
+            className="text-white/70 hover:text-white transition-colors"
           >
             Trabajos
           </a>
           <a
             href="#productos"
-            className="text-zinc-700 hover:text-zinc-900 dark:text-white/70 dark:hover:text-white"
+            className="text-white/70 hover:text-white transition-colors"
           >
             Productos
           </a>
           <a
             href="#certificado"
-            className="text-zinc-700 hover:text-zinc-900 dark:text-white/70 dark:hover:text-white"
+            className="text-white/70 hover:text-white transition-colors"
           >
             Certificado
           </a>
           <a
             href="#contacto"
-            className="text-zinc-700 hover:text-zinc-900 dark:text-white/70 dark:hover:text-white"
+            className="text-white/70 hover:text-white transition-colors"
           >
             Contacto
           </a>
@@ -99,7 +99,7 @@ export function Navbar({ site, theme, onToggleTheme }) {
               href={instagramUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-lg border border-zinc-200 bg-white p-2 text-zinc-900 hover:bg-zinc-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+              className="rounded-lg border border-white/10 bg-white/5 p-2 text-white hover:bg-white/10 transition-colors shadow-lg shadow-black/20"
               aria-label="Instagram"
             >
               <InstagramIcon className="h-4 w-4" />
@@ -110,7 +110,7 @@ export function Navbar({ site, theme, onToggleTheme }) {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-lg border border-zinc-200 bg-white p-2 text-zinc-900 hover:bg-zinc-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+              className="rounded-lg border border-white/10 bg-white/5 p-2 text-white hover:bg-white/10 transition-colors shadow-lg shadow-black/20"
               aria-label="WhatsApp"
             >
               <WhatsAppIcon className="h-4 w-4" />
@@ -120,46 +120,46 @@ export function Navbar({ site, theme, onToggleTheme }) {
       </div>
 
       <div className="mx-auto max-w-6xl px-4 pb-3 lg:hidden">
-        <div className="-mx-1 flex gap-2 overflow-x-auto px-1 text-sm">
+        <div className="-mx-1 flex gap-2 overflow-x-auto px-1 text-sm no-scrollbar">
           <a
             href="#servicios"
-            className="shrink-0 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-700 dark:border-white/10 dark:bg-white/5 dark:text-white/70"
+            className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
           >
             Servicios
           </a>
           <a
             href="#destacado"
-            className="shrink-0 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-700 dark:border-white/10 dark:bg-white/5 dark:text-white/70"
+            className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
           >
             Destacado
           </a>
           <a
             href="#proceso"
-            className="shrink-0 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-700 dark:border-white/10 dark:bg-white/5 dark:text-white/70"
+            className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
           >
             Proceso
           </a>
           <a
             href="#trabajos"
-            className="shrink-0 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-700 dark:border-white/10 dark:bg-white/5 dark:text-white/70"
+            className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
           >
             Trabajos
           </a>
           <a
             href="#productos"
-            className="shrink-0 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-700 dark:border-white/10 dark:bg-white/5 dark:text-white/70"
+            className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
           >
             Productos
           </a>
           <a
             href="#certificado"
-            className="shrink-0 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-700 dark:border-white/10 dark:bg-white/5 dark:text-white/70"
+            className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
           >
             Certificado
           </a>
           <a
             href="#contacto"
-            className="shrink-0 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-700 dark:border-white/10 dark:bg-white/5 dark:text-white/70"
+            className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
           >
             Contacto
           </a>

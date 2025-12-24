@@ -33,7 +33,6 @@ function MapPinIcon(props) {
 }
 
 function App() {
-  const [theme, setTheme] = useState(getInitialTheme)
   const [activeWorkId, setActiveWorkId] = useState(null)
 
   const servicesById = useMemo(
@@ -63,54 +62,46 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white text-zinc-950 dark:bg-zinc-950 dark:text-zinc-100">
-      <Navbar
-        site={site}
-        theme={theme}
-        onToggleTheme={() => {
-          const next = theme === 'dark' ? 'light' : 'dark'
-          setTheme(next)
-          applyTheme(next)
-        }}
-      />
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-red-600/30">
+      <Navbar site={site} />
 
       <main className="mx-auto max-w-6xl px-4 py-10">
         {/* HERO */}
         <section id="inicio" className="py-2 sm:py-4">
-          <div className="relative overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50 p-7 sm:p-10 dark:border-white/10 dark:bg-white/[0.03] min-h-[650px] sm:min-h-[750px] flex items-center">
+          <div className="relative overflow-hidden rounded-3xl border border-white/5 bg-white/[0.02] min-h-[650px] sm:min-h-[750px] flex items-center shadow-2xl">
             {/* Blurs de fondo */}
-            <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
-            <div className="absolute -bottom-28 -left-28 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl" />
+            <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-red-600/10 blur-[100px] animate-pulse" />
+            <div className="absolute -bottom-28 -left-28 h-96 w-96 rounded-full bg-zinc-600/10 blur-[100px]" />
             
             {/* Logo León como Marca de Agua - Bajado un poco con -translate-y */}
-            <div className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.15] dark:opacity-[0.25] pointer-events-none -translate-y-6 sm:-translate-y-8">
+            <div className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.25] pointer-events-none -translate-y-6 sm:-translate-y-8">
               <img
                 src="/logokemblas.jpg"
                 alt=""
-                className="h-full w-full object-contain scale-110 sm:scale-100"
+                className="h-full w-full object-contain scale-110 sm:scale-100 transition-transform duration-[20s] hover:scale-110"
               />
             </div>
 
             <div className="relative z-10 grid gap-8 lg:grid-cols-12 lg:items-stretch w-full h-full">
               <div className="lg:col-span-7 self-center py-12">
-                <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-5xl dark:text-white">
-                  {site?.hero?.title || 'Detailing automotriz'}
+                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl drop-shadow-sm">
+                  {site?.hero?.title || 'Estética Automotriz'}
                 </h1>
-                <p className="mt-4 text-base text-zinc-700 sm:text-lg dark:text-white/70">
+                <p className="mt-6 text-lg text-white/60 sm:text-xl max-w-2xl leading-relaxed">
                   {site?.hero?.subtitle ||
-                    'Servicios, productos y trabajos realizados.'}
+                    'Protección y cuidado profesional para tu patrimonio.'}
                 </p>
 
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <a
                     href={whatsappUrl || '#contacto'}
-                    className="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+                    className="inline-flex items-center justify-center rounded-xl bg-red-600 px-8 py-4 text-base font-bold text-white hover:bg-red-700 transition-all shadow-lg shadow-red-600/20 active:scale-95"
                   >
-                    {site?.cta?.primaryLabel || 'Cotizar por WhatsApp'}
+                    {site?.cta?.primaryLabel || 'Cotizar ahora'}
                   </a>
                   <a
                     href="#trabajos"
-                    className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                    className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-base font-bold text-white hover:bg-white/10 transition-all backdrop-blur-sm active:scale-95"
                   >
                     Ver trabajos
                   </a>
@@ -120,27 +111,27 @@ function App() {
               <div className="lg:col-span-5 flex flex-col justify-end">
                 {/* Cuadro movido hacia abajo para despejar el logo */}
                 <div className="flex flex-col items-center justify-center pt-48 sm:pt-64">
-                  <div className="w-full rounded-2xl border border-zinc-200 bg-white/80 p-6 backdrop-blur-sm dark:border-white/10 dark:bg-zinc-950/60 shadow-xl">
-                    <p className="text-sm font-bold tracking-wider uppercase text-zinc-900 dark:text-white">
+                  <div className="w-full rounded-2xl border border-white/5 bg-zinc-900/60 p-6 backdrop-blur-md shadow-2xl">
+                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-red-500 mb-4">
                       Compromiso con la Perfección
                     </p>
-                    <ul className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-white/80">
-                      <li className="flex gap-3">
-                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-red-600 shadow-[0_0_8px_rgba(220,38,38,0.5)]" />
+                    <ul className="space-y-4 text-sm text-white/70">
+                      <li className="flex gap-4 group">
+                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-red-600 shadow-[0_0_10px_rgba(220,38,38,0.8)] group-hover:scale-125 transition-transform" />
                         <span className="min-w-0">
-                          <span className="font-semibold text-zinc-900 dark:text-white">Tratamientos Premium:</span> Soluciones de alta gama adaptadas a la necesidad de tu vehículo.
+                          <span className="font-bold text-white block mb-0.5">Tratamientos Premium</span> Soluciones de alta gama adaptadas a tu vehículo.
                         </span>
                       </li>
-                      <li className="flex gap-3">
-                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-red-600 shadow-[0_0_8px_rgba(220,38,38,0.5)]" />
+                      <li className="flex gap-4 group">
+                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-red-600 shadow-[0_0_10px_rgba(220,38,38,0.8)] group-hover:scale-125 transition-transform" />
                         <span className="min-w-0">
-                          <span className="font-semibold text-zinc-900 dark:text-white">Metodología Rigurosa:</span> Transparencia total con registro detallado de cada fase del proceso.
+                          <span className="font-bold text-white block mb-0.5">Metodología Rigurosa</span> Registro detallado de cada fase del proceso.
                         </span>
                       </li>
-                      <li className="flex gap-3">
-                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-red-600 shadow-[0_0_8px_rgba(220,38,38,0.5)]" />
+                      <li className="flex gap-4 group">
+                        <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-red-600 shadow-[0_0_10px_rgba(220,38,38,0.8)] group-hover:scale-125 transition-transform" />
                         <span className="min-w-0">
-                          <span className="font-semibold text-zinc-900 dark:text-white">Resultados Comprobados:</span> Galería de transformaciones impactantes con acabados de exhibición.
+                          <span className="font-bold text-white block mb-0.5">Resultados de Exhibición</span> Transformaciones impactantes comprobadas.
                         </span>
                       </li>
                     </ul>
@@ -152,29 +143,32 @@ function App() {
         </section>
 
         {/* SERVICIOS */}
-        <section id="servicios" className="mt-14 scroll-mt-24">
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
-              Servicios
-            </h2>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-white/60">
-              Precios “desde”. El valor final depende del estado del vehículo.
+        <section id="servicios" className="mt-24 scroll-mt-24">
+          <div className="mb-10 text-center sm:text-left">
+            <h2 className="text-3xl font-bold text-white">Servicios</h2>
+            <div className="h-1 w-20 bg-red-600 mt-4 mx-auto sm:mx-0" />
+            <p className="mt-4 text-white/50">
+              Precios base sujetos a valoración técnica del vehículo.
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {services.map((s) => (
               <div
                 key={s.id}
-                className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-white/10 dark:bg-white/[0.03]"
+                className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-8 hover:bg-white/[0.04] transition-all hover:-translate-y-1"
               >
+                <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="h-2 w-2 rounded-full bg-red-600 shadow-[0_0_10px_rgba(220,38,38,0.8)]" />
+                </div>
+                
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0">
-                    <p className="text-base font-semibold text-zinc-900 dark:text-white">
+                    <p className="text-xl font-bold text-white group-hover:text-red-500 transition-colors">
                       {s.name}
                     </p>
                     {s.description ? (
-                      <p className="mt-1 text-sm text-zinc-600 dark:text-white/60">
+                      <p className="mt-2 text-sm text-white/50 leading-relaxed">
                         {s.description}
                       </p>
                     ) : null}
@@ -182,10 +176,10 @@ function App() {
 
                   {typeof s.priceFrom === 'number' ? (
                     <div className="shrink-0 text-right">
-                      <p className="text-xs text-zinc-500 dark:text-white/50">
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-white/30">
                         Desde
                       </p>
-                      <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                      <p className="text-lg font-black text-white">
                         {formatCurrency(s.priceFrom, site.currency) ||
                           String(s.priceFrom)}
                       </p>
@@ -194,10 +188,10 @@ function App() {
                 </div>
 
                 {Array.isArray(s.bullets) && s.bullets.length > 0 ? (
-                  <ul className="mt-4 space-y-2 text-sm text-zinc-700 dark:text-white/70">
+                  <ul className="mt-6 space-y-3 text-sm text-white/60">
                     {s.bullets.map((b, idx) => (
-                      <li key={idx} className="flex gap-2">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-zinc-400 dark:bg-white/30" />
+                      <li key={idx} className="flex gap-3">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-600/50" />
                         <span className="min-w-0">{b}</span>
                       </li>
                     ))}
@@ -205,9 +199,12 @@ function App() {
                 ) : null}
 
                 {s.duration ? (
-                  <p className="mt-4 text-xs text-zinc-500 dark:text-white/50">
-                    Duración estimada: {s.duration}
-                  </p>
+                  <div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/30">
+                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{s.duration}</span>
+                  </div>
                 ) : null}
               </div>
             ))}
@@ -215,72 +212,75 @@ function App() {
         </section>
 
         {/* TRABAJO DESTACADO (CAMIONETA) */}
-        <section id="destacado" className="mt-14 scroll-mt-24">
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
-              Resultados de Excelencia
-            </h2>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-white/60">
+        <section id="destacado" className="mt-24 scroll-mt-24">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-bold text-white">Resultados de Excelencia</h2>
+            <div className="h-1 w-20 bg-red-600 mt-4 mx-auto" />
+            <p className="mt-4 text-white/50">
               Pasión por cada detalle, reflejada en cada entrega.
             </p>
           </div>
 
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
             <InstagramEmbed permalink={site?.media?.heroReel} captioned />
           </div>
         </section>
 
         {/* PROCESO (REEL) */}
-        <section id="proceso" className="mt-14 scroll-mt-24">
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
-              Proceso
-            </h2>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-white/60">
-              Transiciones del proceso de detallado.
+        <section id="proceso" className="mt-24 scroll-mt-24">
+          <div className="mb-10 text-center sm:text-left">
+            <h2 className="text-3xl font-bold text-white">Proceso</h2>
+            <div className="h-1 w-20 bg-red-600 mt-4 mx-auto sm:mx-0" />
+            <p className="mt-4 text-white/50">
+              Transiciones y fases del detallado profesional.
             </p>
           </div>
 
-          <InstagramEmbed permalink={site?.media?.featuredReel} captioned />
+          <div className="rounded-3xl overflow-hidden border border-white/5 shadow-2xl bg-white/[0.01]">
+            <InstagramEmbed permalink={site?.media?.featuredReel} captioned />
+          </div>
         </section>
 
         {/* TRABAJOS */}
-        <section id="trabajos" className="mt-14 scroll-mt-24">
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
-              Trabajos realizados
-            </h2>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-white/60">
-              Lista tipo chat (WhatsApp). Toca un trabajo para ver el detalle.
+        <section id="trabajos" className="mt-24 scroll-mt-24">
+          <div className="mb-10 text-center sm:text-left">
+            <h2 className="text-3xl font-bold text-white">Trabajos realizados</h2>
+            <div className="h-1 w-20 bg-red-600 mt-4 mx-auto sm:mx-0" />
+            <p className="mt-4 text-white/50">
+              Desliza para ver nuestras transformaciones recientes.
             </p>
           </div>
 
-          <WorkChatList
-            works={works}
-            servicesById={servicesById}
-            onOpenWork={(id) => setActiveWorkId(id)}
-          />
+          <div className="rounded-3xl overflow-hidden border border-white/5 bg-white/[0.01] shadow-2xl">
+            <WorkChatList
+              works={works}
+              servicesById={servicesById}
+              onOpenWork={(id) => setActiveWorkId(id)}
+            />
+          </div>
         </section>
 
         {/* PRODUCTOS */}
-        <section id="productos" className="mt-14 scroll-mt-24">
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
-              Productos
-            </h2>
+        <section id="productos" className="mt-24 scroll-mt-24">
+          <div className="mb-10 text-center sm:text-left">
+            <h2 className="text-3xl font-bold text-white">Insumos de Alta Gama</h2>
+            <div className="h-1 w-20 bg-red-600 mt-4 mx-auto sm:mx-0" />
+            <p className="mt-4 text-white/50">
+              Utilizamos solo lo mejor para garantizar resultados duraderos.
+            </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-1">
+          <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-1">
             {products.map((p) => (
               <div
                 key={p.id}
-                className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.03]"
+                className="overflow-hidden rounded-3xl border border-white/5 bg-white/[0.01] p-8 shadow-2xl"
               >
-                <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                <p className="text-xl font-bold text-white mb-6">
                   {p.name}
                 </p>
 
-                <div className="mt-4">
+                <div className="rounded-2xl overflow-hidden border border-white/5">
                   <InstagramEmbed permalink={p.instagramPermalink} captioned />
                 </div>
               </div>
@@ -289,112 +289,131 @@ function App() {
         </section>
 
         {/* CERTIFICADO */}
-        <section id="certificado" className="mt-14 scroll-mt-24">
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
-              Certificado
-            </h2>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-white/60">
+        <section id="certificado" className="mt-24 scroll-mt-24">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-bold text-white">Capacitación y Respaldo</h2>
+            <div className="h-1 w-20 bg-red-600 mt-4 mx-auto" />
+            <p className="mt-4 text-white/50">
               {site?.certificate?.description}
             </p>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-white/10 dark:bg-white/[0.03]">
-            <div className="flex flex-col gap-1">
-              <p className="text-sm font-semibold text-zinc-900 dark:text-white">
-                {site?.certificate?.title || 'Certificado'}
-              </p>
-            </div>
+          <div className="rounded-3xl border border-white/5 bg-white/[0.02] p-8 sm:p-12 shadow-2xl overflow-hidden relative">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-600/50 to-transparent" />
+            
+            <div className="relative z-10 flex flex-col gap-10">
+              <div className="text-center">
+                <p className="text-2xl font-black text-white tracking-tight">
+                  {site?.certificate?.title || 'Certificación Oficial'}
+                </p>
+              </div>
 
-            <div className="mt-5 overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50 dark:border-white/10 dark:bg-white/5">
-              <img
-                src={site?.certificate?.image || '/certificado.svg'}
-                alt={site?.certificate?.title || 'Certificado'}
-                loading="lazy"
-                className="h-auto w-full object-contain"
-              />
+              <div className="overflow-hidden rounded-2xl border border-white/5 bg-black/40 shadow-inner">
+                <img
+                  src={site?.certificate?.image || '/certificado.svg'}
+                  alt={site?.certificate?.title || 'Certificado'}
+                  loading="lazy"
+                  className="h-auto w-full object-contain brightness-95 hover:brightness-110 transition-all duration-700"
+                />
+              </div>
             </div>
           </div>
         </section>
 
         {/* CONTACTO */}
-        <section id="contacto" className="mt-14 scroll-mt-24">
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
-              Contacto
-            </h2>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-white/60">
-              Respuesta rápida por WhatsApp.
+        <section id="contacto" className="mt-24 mb-24 scroll-mt-24">
+          <div className="mb-10 text-center sm:text-left">
+            <h2 className="text-3xl font-bold text-white">Hablemos</h2>
+            <div className="h-1 w-20 bg-red-600 mt-4 mx-auto sm:mx-0" />
+            <p className="mt-4 text-white/50">
+              Estamos listos para transformar tu vehículo.
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-white/10 dark:bg-white/[0.03]">
-              <p className="text-sm font-semibold text-zinc-900 dark:text-white">
-                WhatsApp
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="group relative rounded-3xl border border-white/5 bg-white/[0.02] p-10 hover:bg-white/[0.04] transition-all overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 blur-3xl -translate-y-16 translate-x-16" />
+              
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-white/30 mb-6">
+                Vía WhatsApp
               </p>
-              {site?.contact?.whatsappPhone ? (
+              
+              <div className="space-y-6">
+                {site?.contact?.whatsappPhone && (
+                  <a
+                    href={whatsappUrl || '#'}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-4 text-2xl font-black text-white hover:text-red-500 transition-colors"
+                  >
+                    {site.contact.whatsappPhone}
+                  </a>
+                )}
+
                 <a
                   href={whatsappUrl || '#'}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-2 inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                  className="inline-flex items-center justify-center rounded-xl bg-red-600 px-10 py-4 text-base font-bold text-white hover:bg-red-700 transition-all shadow-lg shadow-red-600/20 active:scale-95"
                 >
-                  {site.contact.whatsappPhone}
-                </a>
-              ) : null}
-
-              <a
-                href={whatsappUrl || '#'}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex items-center justify-center rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
-              >
-                Abrir WhatsApp
+                  Iniciar Conversación
         </a>
       </div>
+            </div>
 
-            <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-white/10 dark:bg-white/[0.03]">
-              <p className="text-sm font-semibold text-zinc-900 dark:text-white">
-                Redes y ubicación
+            <div className="group relative rounded-3xl border border-white/5 bg-white/[0.02] p-10 hover:bg-white/[0.04] transition-all overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-zinc-600/5 blur-3xl -translate-y-16 translate-x-16" />
+              
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-white/30 mb-6">
+                Presencia Digital
               </p>
 
-              <div className="mt-4 space-y-3">
-                {site?.contact?.instagram ? (
-                  <div className="flex items-center gap-3">
+              <div className="space-y-8">
+                {site?.contact?.instagram && (
+                  <div className="flex items-center gap-6">
                     <a
                       href={site.contact.instagram}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-white text-zinc-900 hover:bg-zinc-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                      className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-all shadow-xl active:scale-90"
                       aria-label="Instagram"
-                      title="Instagram"
                     >
-                      <InstagramIcon className="h-5 w-5" />
+                      <InstagramIcon className="h-6 w-6" />
                     </a>
-                    <p className="text-sm font-medium text-zinc-700 dark:text-white/70">
-                      {instagramHandle || 'Instagram'}
-        </p>
-      </div>
-                ) : null}
+                    <div>
+                      <p className="text-xs font-bold text-white/30 uppercase tracking-widest mb-1">Síguenos</p>
+                      <p className="text-xl font-bold text-white">
+                        {instagramHandle || 'Instagram'}
+                      </p>
+                    </div>
+                  </div>
+                )}
 
                 {site?.contact?.address || site?.contact?.city ? (
-                  <div className="flex items-center gap-3">
-                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-white text-zinc-900 dark:border-white/10 dark:bg-white/5 dark:text-white">
-                      <MapPinIcon className="h-5 w-5" />
+                  <div className="flex items-center gap-6">
+                    <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white shadow-xl">
+                      <MapPinIcon className="h-6 w-6" />
                     </div>
-                    <p className="text-sm font-medium text-zinc-700 dark:text-white/70">
-                      {site.contact.address ? `${site.contact.address} · ` : ''}
-                      {site.contact.city || ''}
-                    </p>
+                    <div>
+                      <p className="text-xs font-bold text-white/30 uppercase tracking-widest mb-1">Ubicación</p>
+                      <p className="text-xl font-bold text-white">
+                        {site.contact.address ? `${site.contact.address} · ` : ''}
+                        {site.contact.city || ''}
+        </p>
+      </div>
                   </div>
                 ) : null}
               </div>
             </div>
           </div>
 
-          <footer className="mt-10 border-t border-zinc-200 pt-6 text-xs text-zinc-500 dark:border-white/10 dark:text-white/50">
-            © {new Date().getFullYear()} {site?.workshopName || 'Taller'}
+          <footer className="mt-20 border-t border-white/5 pt-10 text-center">
+            <div className="flex flex-col items-center gap-4">
+              <img src={site?.brand?.logo} alt="" className="h-8 w-auto opacity-50 grayscale hover:grayscale-0 transition-all" />
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/20">
+                © {new Date().getFullYear()} {site?.workshopName || 'Kembla\'s Garage'}
+              </p>
+            </div>
           </footer>
         </section>
       </main>
