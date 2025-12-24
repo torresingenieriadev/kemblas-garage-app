@@ -18,7 +18,7 @@ function WhatsAppIcon(props) {
 
 export function Navbar({ site }) {
   const workshopName = site?.workshopName || 'Taller'
-  const logoSrc = site?.brand?.logo
+  const logoSrc = '/logokemblas.jpg'
   const instagramUrl = site?.contact?.instagram
   const whatsappPhone = site?.contact?.whatsappPhone?.replace(/\D/g, '')
   const whatsappUrl = whatsappPhone ? `https://wa.me/${whatsappPhone}` : null

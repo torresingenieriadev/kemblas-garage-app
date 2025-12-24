@@ -73,8 +73,8 @@ function App() {
             <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-red-600/10 blur-[100px] animate-pulse" />
             <div className="absolute -bottom-28 -left-28 h-96 w-96 rounded-full bg-zinc-600/10 blur-[100px]" />
             
-            {/* Logo León como Marca de Agua - Bajado un poco con -translate-y */}
-            <div className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.25] pointer-events-none -translate-y-6 sm:-translate-y-8">
+            {/* Logo León como Marca de Agua - Bajado más para que se vea completo */}
+            <div className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.25] pointer-events-none translate-y-16 sm:translate-y-8">
               <img
                 src="/logokemblas.jpg"
                 alt=""
@@ -100,7 +100,7 @@ function App() {
                     {site?.cta?.primaryLabel || 'Cotizar ahora'}
                   </a>
                   <a
-                    href="#trabajos"
+                    href="#destacado"
                     className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-base font-bold text-white hover:bg-white/10 transition-all backdrop-blur-sm active:scale-95"
                   >
                     Ver trabajos
