@@ -104,8 +104,8 @@ export function Calculator({ catalogs, phone, currency = 'COP' }) {
   }
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-zinc-900/60 p-6 sm:p-10 shadow-2xl backdrop-blur-md">
-      <div className="grid gap-12 lg:grid-cols-2">
+    <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-zinc-900/60 p-4 sm:p-10 shadow-2xl backdrop-blur-md">
+      <div className="grid gap-10 lg:grid-cols-2">
         {/* PARTE DE SELECCIÓN */}
         <div className="flex flex-col gap-8">
           <div>
@@ -115,7 +115,7 @@ export function Calculator({ catalogs, phone, currency = 'COP' }) {
                 <button
                   key={c.id}
                   onClick={() => setCategoryId(c.id)}
-                  className={`rounded-xl px-5 py-3 text-sm font-bold transition-all ${
+                  className={`rounded-xl px-4 py-2 sm:px-5 sm:py-3 text-[13px] sm:text-sm font-bold transition-all ${
                     categoryId === c.id
                       ? 'bg-red-600 text-white shadow-[0_0_15px_rgba(220,38,38,0.5)]'
                       : 'bg-white/5 text-white/60 hover:bg-white/10 hover:text-white'
@@ -135,7 +135,7 @@ export function Calculator({ catalogs, phone, currency = 'COP' }) {
                   key={s.id}
                   type="button"
                   onClick={() => setServiceId(s.id)}
-                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-4 transition-all text-left ${
+                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 sm:p-4 transition-all text-left ${
                     serviceId === s.id
                       ? 'border-red-500 bg-red-500/10'
                       : 'border-white/5 bg-white/5 hover:bg-white/10'
@@ -160,7 +160,7 @@ export function Calculator({ catalogs, phone, currency = 'COP' }) {
 
           <div>
             <h3 className="text-xl font-bold text-white mb-4">3. Tipo de vehículo</h3>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
               {vehicles.map((v) => {
                 const Icon = v.icon
                 const isSelected = vehicleId === v.id
@@ -168,14 +168,14 @@ export function Calculator({ catalogs, phone, currency = 'COP' }) {
                   <button
                     key={v.id}
                     onClick={() => setVehicleId(v.id)}
-                    className={`flex flex-col items-center gap-2 rounded-xl border p-4 transition-all ${
+                    className={`flex flex-col items-center justify-center gap-1 sm:gap-2 rounded-xl border p-2 sm:p-4 transition-all ${
                       isSelected
                         ? 'border-red-500 bg-red-500/10 text-white shadow-[0_4px_20px_rgba(220,38,38,0.2)]'
                         : 'border-white/5 bg-white/5 text-white/50 hover:bg-white/10'
                     }`}
                   >
-                    <Icon className="h-8 w-8" />
-                    <span className="text-xs font-bold tracking-wider">{v.label}</span>
+                    <Icon className="h-6 w-6 sm:h-8 sm:w-8" />
+                    <span className="text-[10px] sm:text-xs font-bold tracking-wider text-center leading-tight">{v.label}</span>
                   </button>
                 )
               })}
@@ -192,7 +192,7 @@ export function Calculator({ catalogs, phone, currency = 'COP' }) {
                     <button
                       key={idx}
                       onClick={() => handleToggleAddon(idx)}
-                      className={`flex items-center justify-between rounded-xl border p-4 transition-all ${
+                      className={`flex items-center justify-between rounded-xl border p-3 sm:p-4 transition-all ${
                         isActive
                           ? 'border-red-500/50 bg-red-500/5 text-white'
                           : 'border-white/5 bg-white/5 text-white/60 hover:bg-white/10'
@@ -224,8 +224,8 @@ export function Calculator({ catalogs, phone, currency = 'COP' }) {
         </div>
 
         {/* PARTE DE RESULTADO / TICKET */}
-        <div className="flex flex-col lg:pl-12 lg:border-l lg:border-white/5">
-          <div className="sticky top-24 flex flex-col gap-6 rounded-3xl border border-white/10 bg-zinc-950 p-8 shadow-2xl">
+        <div className="flex flex-col lg:pl-10 lg:border-l lg:border-white/5">
+          <div className="sticky top-24 flex flex-col gap-6 rounded-3xl border border-white/10 bg-zinc-950 p-6 sm:p-8 shadow-2xl">
             <div>
               <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-red-500 mb-6">Tu Cotización</h4>
               
