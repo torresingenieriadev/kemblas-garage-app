@@ -1,9 +1,12 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect, useRef } from 'react'
 import products from './content/products.json'
 import services from './content/services.json'
 import site from './content/site.json'
 import works from './content/works.json'
+import catalogs from './content/catalogs.json'
 import { InstagramEmbed } from './components/InstagramEmbed.jsx'
+import { CatalogCard } from './components/CatalogCard.jsx'
+import { Calculator } from './components/Calculator.jsx'
 import { Navbar } from './components/Navbar.jsx'
 import { WorkChatList } from './components/WorkChatList.jsx'
 import { WorkDetailModal } from './components/WorkDetailModal.jsx'
@@ -59,6 +62,40 @@ function App() {
     } catch {
       return 'Instagram'
     }
+  }, [])
+
+  const instagramGallery = useMemo(() => {
+    const posts = []
+    if (site?.media?.heroReel) {
+      posts.push({ id: 'hero', title: 'Resultados de Excelencia', url: site.media.heroReel })
+    }
+    if (site?.media?.featuredReel) {
+      posts.push({ id: 'proceso', title: 'Proceso de Detallado', url: site.media.featuredReel })
+    }
+    products?.forEach((p) => {
+      if (p.instagramPermalink) {
+        posts.push({ id: `prod-${p.id}`, title: p.name, url: p.instagramPermalink })
+      }
+    })
+    return posts
+  }, [])
+
+  const carouselRef = useRef(null)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+        } else {
+          // Desplazar el tamaño aproximado de una tarjeta + el gap
+          const scrollAmount = clientWidth > 640 ? 424 : clientWidth * 0.85 + 24
+          carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+        }
+      }
+    }, 2000)
+    return () => clearInterval(interval)
   }, [])
 
   return (
@@ -142,112 +179,110 @@ function App() {
           </div>
         </section>
 
+        {/* CALCULADORA DE PRESUPUESTOS */}
+        <section id="cotizador" className="mt-20 scroll-mt-24">
+          <div className="mb-10 text-center sm:text-left">
+            <h2 className="text-3xl font-bold text-white flex items-center justify-center sm:justify-start gap-4">
+              Cotizador Inteligente
+              <span className="inline-flex items-center justify-center rounded-full bg-red-600/20 px-3 py-1 text-xs font-black uppercase text-red-500 tracking-wider">
+                NUEVO
+              </span>
+            </h2>
+            <div className="h-1 w-20 bg-red-600 mt-4 mx-auto sm:mx-0" />
+            <p className="mt-4 text-white/50">
+              Personaliza el servicio ideal para tu vehículo y obtén tu presupuesto instantáneo por WhatsApp.
+            </p>
+          </div>
+          
+          <Calculator
+            catalogs={catalogs}
+            phone={site?.contact?.whatsappPhone}
+            currency={site?.currency}
+          />
+        </section>
+
         {/* SERVICIOS */}
         <section id="servicios" className="mt-24 scroll-mt-24">
           <div className="mb-10 text-center sm:text-left">
-            <h2 className="text-3xl font-bold text-white">Servicios</h2>
+            <h2 className="text-3xl font-bold text-white">Servicios & Catálogos</h2>
             <div className="h-1 w-20 bg-red-600 mt-4 mx-auto sm:mx-0" />
             <p className="mt-4 text-white/50">
-              Precios base sujetos a valoración técnica del vehículo.
+              Nuestros tratamientos especializados, segmentados por tipo de vehículo para garantizar resultados perfectos.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {services.map((s) => (
-              <div
-                key={s.id}
-                className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-8 hover:bg-white/[0.04] transition-all hover:-translate-y-1"
-              >
-                <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="h-2 w-2 rounded-full bg-red-600 shadow-[0_0_10px_rgba(220,38,38,0.8)]" />
-                </div>
-                
-                <div className="flex items-start justify-between gap-4">
-                  <div className="min-w-0">
-                    <p className="text-xl font-bold text-white group-hover:text-red-500 transition-colors">
-                      {s.name}
+          <div className="space-y-24">
+            {catalogs.map((category) => (
+              <div key={category.id} className="scroll-mt-24">
+                <div className="mb-12">
+                  <h3 className="text-2xl font-black text-white flex items-center gap-4">
+                    <span className="h-8 w-1 bg-red-600 rounded-full"></span>
+                    {category.title}
+                  </h3>
+                  {category.description && (
+                    <p className="mt-4 text-white/50 max-w-3xl ml-5 border-l border-white/10 pl-4 py-1">
+                      {category.description}
                     </p>
-                    {s.description ? (
-                      <p className="mt-2 text-sm text-white/50 leading-relaxed">
-                        {s.description}
-                      </p>
-                    ) : null}
-                  </div>
-
-                  {typeof s.priceFrom === 'number' ? (
-                    <div className="shrink-0 text-right">
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-white/30">
-                        Desde
-                      </p>
-                      <p className="text-lg font-black text-white">
-                        {formatCurrency(s.priceFrom, site.currency) ||
-                          String(s.priceFrom)}
-                      </p>
-                    </div>
-                  ) : null}
+                  )}
                 </div>
 
-                {Array.isArray(s.bullets) && s.bullets.length > 0 ? (
-                  <ul className="mt-6 space-y-3 text-sm text-white/60">
-                    {s.bullets.map((b, idx) => (
-                      <li key={idx} className="flex gap-3">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-600/50" />
-                        <span className="min-w-0">{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-
-                {s.duration ? (
-                  <div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/30">
-                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>{s.duration}</span>
-                  </div>
-                ) : null}
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+                  {category.services.map((service) => (
+                    <div key={service.id} className="h-full">
+                      <CatalogCard
+                        service={service}
+                        categoryId={category.id}
+                        currency={site?.currency}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* TRABAJO DESTACADO (CAMIONETA) */}
-        <section id="destacado" className="mt-24 scroll-mt-24">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl font-bold text-white">Resultados de Excelencia</h2>
-            <div className="h-1 w-20 bg-red-600 mt-4 mx-auto" />
-            <p className="mt-4 text-white/50">
-              Pasión por cada detalle, reflejada en cada entrega.
-            </p>
-          </div>
-
-          <div className="max-w-2xl mx-auto rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
-            <InstagramEmbed permalink={site?.media?.heroReel} captioned />
-          </div>
-        </section>
-
-        {/* PROCESO (REEL) */}
-        <section id="proceso" className="mt-24 scroll-mt-24">
+        {/* GALERÍA INSTAGRAM (CARRUSEL HORIZONTAL) */}
+        <section id="galeria" className="mt-24 scroll-mt-24 w-full overflow-hidden">
           <div className="mb-10 text-center sm:text-left">
-            <h2 className="text-3xl font-bold text-white">Proceso</h2>
+            <h2 className="text-3xl font-bold text-white">Galería & Proceso</h2>
             <div className="h-1 w-20 bg-red-600 mt-4 mx-auto sm:mx-0" />
             <p className="mt-4 text-white/50">
-              Transiciones y fases del detallado profesional.
+              Desliza horizontalmente para ver nuestros resultados, procesos e insumos en acción.
             </p>
           </div>
 
-          <div className="rounded-3xl overflow-hidden border border-white/5 shadow-2xl bg-white/[0.01]">
-            <InstagramEmbed permalink={site?.media?.featuredReel} captioned />
+          <div 
+            ref={carouselRef}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 px-4 sm:px-0 -mx-4 sm:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
+            {instagramGallery.map((post) => (
+              <div 
+                key={post.id}
+                className="shrink-0 w-[85vw] sm:w-[360px] md:w-[400px] snap-center overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/60 shadow-2xl flex flex-col transition-all hover:-translate-y-1 hover:border-white/20 backdrop-blur-sm"
+              >
+                <div className="p-6 pb-4 border-b border-white/5 bg-zinc-950/80">
+                  <h3 className="font-bold text-white text-lg flex items-center gap-3">
+                    <span className="h-2 w-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(220,38,38,0.8)]"></span>
+                    {post.title}
+                  </h3>
+                </div>
+                {/* Contenedor responsivo para el Iframe de Instagram */}
+                <div className="bg-white/[0.01] w-full relative">
+                   <InstagramEmbed permalink={post.url} captioned={false} />
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* TRABAJOS */}
+        {/* TRABAJOS (CHAT LIST) */}
         <section id="trabajos" className="mt-24 scroll-mt-24">
           <div className="mb-10 text-center sm:text-left">
-            <h2 className="text-3xl font-bold text-white">Trabajos realizados</h2>
+            <h2 className="text-3xl font-bold text-white">Proyectos Detallados</h2>
             <div className="h-1 w-20 bg-red-600 mt-4 mx-auto sm:mx-0" />
             <p className="mt-4 text-white/50">
-              Desliza para ver nuestras transformaciones recientes.
+              Abre el historial de chat para ver el registro visual de nuestras transformaciones.
             </p>
           </div>
 
@@ -257,34 +292,6 @@ function App() {
               servicesById={servicesById}
               onOpenWork={(id) => setActiveWorkId(id)}
             />
-          </div>
-        </section>
-
-        {/* PRODUCTOS */}
-        <section id="productos" className="mt-24 scroll-mt-24">
-          <div className="mb-10 text-center sm:text-left">
-            <h2 className="text-3xl font-bold text-white">Insumos de Alta Gama</h2>
-            <div className="h-1 w-20 bg-red-600 mt-4 mx-auto sm:mx-0" />
-            <p className="mt-4 text-white/50">
-              Utilizamos solo lo mejor para garantizar resultados duraderos.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-1">
-            {products.map((p) => (
-              <div
-                key={p.id}
-                className="overflow-hidden rounded-3xl border border-white/5 bg-white/[0.01] p-8 shadow-2xl"
-              >
-                <p className="text-xl font-bold text-white mb-6">
-                  {p.name}
-                </p>
-
-                <div className="rounded-2xl overflow-hidden border border-white/5">
-                  <InstagramEmbed permalink={p.instagramPermalink} captioned />
-                </div>
-              </div>
-            ))}
           </div>
         </section>
 

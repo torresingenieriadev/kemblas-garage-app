@@ -11,3 +11,4 @@ export function applyTheme(nextTheme) {
   localStorage.setItem('theme', nextTheme)
 }
 
+

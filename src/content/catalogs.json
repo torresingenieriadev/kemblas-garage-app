@@ -1,0 +1,193 @@
+[
+  {
+    "id": "limpieza-interior",
+    "title": "Limpieza Profunda Interior",
+    "description": "Limpieza integral y desinfección del habitáculo, eliminando suciedad adherida, manchas difíciles y malos olores para devolverle una auténtica sensación de vehículo nuevo.",
+    "services": [
+      {
+        "id": "interior-nivel-1",
+        "name": "Nivel 1 (Mantenimiento)",
+        "description": "Limpieza general del interior del vehículo, eliminando suciedad acumulada y manchas difíciles con resultados impecables.",
+        "features": [
+          "Limpieza de techo, parales, guanteras y vidrios interiores",
+          "Aspirado de baúl (alfombra), puertas, carteras, alfombra y tapetes",
+          "Limpieza de biyare y cinturones"
+        ],
+        "benefits": [
+          "Restauración del color y la textura original",
+          "Mayor confort y mejor apariencia del vehículo"
+        ],
+        "addons": [
+          { "name": "Limpieza de pelo de mascota", "price": 50000 }
+        ],
+        "prices": {
+          "auto": 200000,
+          "suv": 250000,
+          "van7": 300000
+        }
+      },
+      {
+        "id": "interior-nivel-2",
+        "name": "Nivel 2 (Profundo)",
+        "description": "Limpieza integral del interior, eliminando suciedad adherida y malos olores.",
+        "features": [
+          "Todo lo del Nivel 1",
+          "Limpieza de sillas inyección-succión (Tela o cuero)"
+        ],
+        "benefits": [
+          "Eliminación de manchas en textiles",
+          "Hidratación y restauración de plásticos y cueros (paneles, consola, puertas y sillas)",
+          "Atención a detalles y zonas de difícil acceso"
+        ],
+        "addons": [
+          { "name": "Limpieza de pelo de mascota", "price": 50000 }
+        ],
+        "prices": {
+          "auto": 250000,
+          "suv": 300000,
+          "van7": 350000
+        }
+      },
+      {
+        "id": "interior-nivel-3",
+        "name": "Nivel 3 (Muy Profundo)",
+        "description": "Limpieza profunda con desinfección total del interior e intervención mayor de las sillas.",
+        "features": [
+          "Todo lo del Nivel 1 y 2",
+          "Desmonte de sillas (tela o cuero)",
+          "Baúl y llanta de repuesto"
+        ],
+        "benefits": [
+          "Limpieza con vapor para desinfección profunda",
+          "Aplicación de ozono para la eliminación de ácaros, bacterias y malos olores",
+          "Eliminación de manchas en textiles",
+          "Hidratación y restauración de plásticos y cueros",
+          "Descontaminación de ductos de aire acondicionado"
+        ],
+        "addons": [
+          { "name": "Limpieza de pelo de mascota", "price": 50000 }
+        ],
+        "prices": {
+          "auto": 350000,
+          "suv": 400000,
+          "van7": 450000
+        }
+      }
+    ]
+  },
+  {
+    "id": "restauracion-pintura",
+    "title": "Restauración de Pintura",
+    "description": "Todos nuestros servicios incluyen el uso de vapor y descontaminación profunda (Clay Bar) para dejar la pintura suave como vidrio y remover impurezas de la superficie del barniz.",
+    "services": [
+      {
+        "id": "pintura-realce",
+        "name": "Realce de Brillo",
+        "description": "Ideal para recuperar el tono y otorgar un aspecto deslumbrante.",
+        "features": [
+          "Restauración del brillo",
+          "Aplicación de sellador a máquina"
+        ],
+        "benefits": [
+          "Brillo intenso y acabado espejo",
+          "Protección frente a agentes externos que dañan la pintura"
+        ],
+        "protection": "Protección garantizada por 3-4 meses",
+        "prices": {
+          "auto": 120000,
+          "suv": 140000,
+          "van7": 150000
+        }
+      },
+      {
+        "id": "pintura-polichado",
+        "name": "Polichado",
+        "description": "Proceso focalizado en la eliminación de manchas y recuperación del color.",
+        "features": [
+          "Eliminación de manchas",
+          "Restauración del brillo y color original",
+          "Uso de pulimentos profesionales según el estado del barniz"
+        ],
+        "benefits": [
+          "Brillo intenso y acabado espejo",
+          "Protección frente a agentes externos que dañan la pintura"
+        ],
+        "protection": "Protección garantizada por 3 meses",
+        "prices": {
+          "auto": 190000,
+          "suv": 230000,
+          "van7": 250000
+        }
+      },
+      {
+        "id": "pintura-diamantizado",
+        "name": "Diamantizado - CORRECCIÓN NIVEL 1",
+        "description": "Reducción de microrayones hasta en un 25%. Eliminación de marcas y manchas.",
+        "features": [
+          "Reducción de microrayones hasta en un 25%",
+          "Eliminación de marcas y manchas",
+          "Restauración del brillo y color original",
+          "Uso de pulimentos profesionales según el estado del barniz"
+        ],
+        "benefits": [
+          "Brillo intenso y acabado espejo",
+          "Protección frente a agentes externos que dañan la pintura",
+          "Superficie hidrofóbica: No se adhieren agua ni suciedad",
+          "Menor adherencia de suciedad y lavado más fácil"
+        ],
+        "protection": "Protección garantizada por 3 meses",
+        "prices": {
+          "auto": 320000,
+          "suv": 380000,
+          "van7": 420000
+        }
+      },
+      {
+        "id": "pintura-porcelanizado",
+        "name": "Porcelanizado - CORRECCIÓN NIVEL 2",
+        "description": "Reducción de microrayones hasta en un 45%. Eliminación de marcas y manchas.",
+        "features": [
+          "Reducción de microrayones hasta en un 45%",
+          "Eliminación de marcas y manchas",
+          "Restauración del brillo y color original",
+          "Uso de pulimentos profesionales según el estado del barniz"
+        ],
+        "benefits": [
+          "Brillo intenso y acabado espejo",
+          "Protección frente a agentes externos que dañan la pintura",
+          "Superficie hidrofóbica (No se adhieren agua ni suciedad)",
+          "Menor adherencia de suciedad y lavado más fácil"
+        ],
+        "protection": "Protección garantizada entre 5-6 meses",
+        "prices": {
+          "auto": 420000,
+          "suv": 480000,
+          "van7": 520000
+        }
+      },
+      {
+        "id": "pintura-ceramico",
+        "name": "Recubrimiento Cerámico - CORRECCIÓN NIVEL 3",
+        "description": "Reducción de microrayones hasta en un 90%. Eliminación de hologramas y manchas.",
+        "features": [
+          "Reducción de microrayones hasta en un 90%",
+          "Eliminación de hologramas y manchas",
+          "Restauración del brillo y color original",
+          "Uso de pulimentos profesionales según el estado del barniz"
+        ],
+        "benefits": [
+          "Brillo intenso y acabado espejo",
+          "Protección frente a agentes externos que dañan la pintura",
+          "Superficie hidrofóbica: No se adhieren agua ni suciedad",
+          "Menor adherencia de suciedad y lavado más fácil"
+        ],
+        "protection": "Protección garantizada entre 12 y 14 meses",
+        "prices": {
+          "auto": 600000,
+          "suv": 700000,
+          "van7": 750000
+        }
+      }
+    ]
+  }
+]
