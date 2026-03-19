@@ -143,7 +143,7 @@ function App() {
                     {site?.cta?.primaryLabel || 'Cotizar ahora'}
                   </a>
                   <a
-                    href="#destacado"
+                    href="#galeria"
                     className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-base font-bold text-white hover:bg-white/10 transition-all backdrop-blur-sm active:scale-95"
                   >
                     Ver trabajos

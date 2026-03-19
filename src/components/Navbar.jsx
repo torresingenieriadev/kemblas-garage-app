@@ -50,34 +50,28 @@ export function Navbar({ site }) {
 
         <nav className="ml-auto hidden items-center gap-5 text-sm lg:flex">
           <a
+            href="#cotizador"
+            className="text-white/70 hover:text-white transition-colors"
+          >
+            Cotizador
+          </a>
+          <a
             href="#servicios"
             className="text-white/70 hover:text-white transition-colors"
           >
             Servicios
           </a>
           <a
-            href="#destacado"
+            href="#galeria"
             className="text-white/70 hover:text-white transition-colors"
           >
-            Destacado
-          </a>
-          <a
-            href="#proceso"
-            className="text-white/70 hover:text-white transition-colors"
-          >
-            Proceso
+            Galería
           </a>
           <a
             href="#trabajos"
             className="text-white/70 hover:text-white transition-colors"
           >
             Trabajos
-          </a>
-          <a
-            href="#productos"
-            className="text-white/70 hover:text-white transition-colors"
-          >
-            Productos
           </a>
           <a
             href="#certificado"
@@ -122,34 +116,28 @@ export function Navbar({ site }) {
       <div className="mx-auto max-w-6xl px-4 pb-3 lg:hidden">
         <div className="-mx-1 flex gap-2 overflow-x-auto px-1 text-sm no-scrollbar">
           <a
+            href="#cotizador"
+            className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
+          >
+            Cotizador
+          </a>
+          <a
             href="#servicios"
             className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
           >
             Servicios
           </a>
           <a
-            href="#destacado"
+            href="#galeria"
             className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
           >
-            Destacado
-          </a>
-          <a
-            href="#proceso"
-            className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
-          >
-            Proceso
+            Galería
           </a>
           <a
             href="#trabajos"
             className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
           >
             Trabajos
-          </a>
-          <a
-            href="#productos"
-            className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70"
-          >
-            Productos
           </a>
           <a
             href="#certificado"
