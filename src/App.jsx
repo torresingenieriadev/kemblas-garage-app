@@ -81,10 +81,16 @@ function App() {
   }, [])
 
   const carouselRef = useRef(null)
+  const isHovered = useRef(false)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (carouselRef.current) {
+      // Si el mouse o el dedo está encima, o si un iframe interno (video) tiene focus, pausamos
+      if (
+        carouselRef.current && 
+        !isHovered.current && 
+        !(document.activeElement && carouselRef.current.contains(document.activeElement))
+      ) {
         const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current
         if (scrollLeft + clientWidth >= scrollWidth - 10) {
           carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' })
@@ -254,6 +260,10 @@ function App() {
 
           <div 
             ref={carouselRef}
+            onMouseEnter={() => (isHovered.current = true)}
+            onMouseLeave={() => (isHovered.current = false)}
+            onTouchStart={() => (isHovered.current = true)}
+            onTouchEnd={() => (isHovered.current = false)}
             className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 px-4 sm:px-0 -mx-4 sm:mx-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
             {instagramGallery.map((post) => (

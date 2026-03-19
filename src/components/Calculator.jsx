@@ -88,15 +88,15 @@ export function Calculator({ catalogs, phone, currency = 'COP' }) {
   const handleWhatsApp = () => {
     const vLabel = vehicles.find(v => v.id === vehicleId)?.label
     let msg = `Hola! Me interesa cotizar este servicio:\n\n`
-    msg += `📌 *Servicio:* ${category.title} - ${service.name}\n`
-    msg += `🚗 *Vehículo:* ${vLabel}\n`
+    msg += `\u{1F4CC} *Servicio:* ${category.title} - ${service.name}\n`
+    msg += `\u{1F697} *Vehículo:* ${vLabel}\n`
     if (activeAddonIndices.length > 0) {
-      msg += `➕ *Complementos:*\n`
+      msg += `\u2795 *Complementos:*\n`
       activeAddonIndices.forEach(idx => {
         msg += `   - ${service.addons[idx].name}\n`
       })
     }
-    msg += `\n💰 *Presupuesto Estimado:* ${formatCurrency(totalPrice, currency)}\n\n`
+    msg += `\n\u{1F4B0} *Presupuesto Estimado:* ${formatCurrency(totalPrice, currency)}\n\n`
     msg += `¿Qué disponibilidad tienen para agendar?`
 
     const url = buildWhatsAppUrl(phone, msg)
