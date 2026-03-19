@@ -435,13 +435,24 @@ function App() {
                 <img src={site?.brand?.logo} alt="" className="h-6 w-auto opacity-30 grayscale hover:grayscale-0 transition-all" />
               </div>
               
-              <div className="space-y-2">
+              <div className="space-y-6 pt-4">
                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20">
                   © {new Date().getFullYear()} {site?.workshopName || 'Kembla\'s Garage'} · Todos los derechos reservados
                 </p>
-                <p className="text-[9px] font-medium uppercase tracking-widest text-white/10">
-                  Powered by <span className="text-white/30">Torres Ingeniería</span>
-                </p>
+                
+                <a 
+                  href="https://torresingenieria.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block rounded-2xl bg-zinc-900 border border-white/5 px-6 py-3 shadow-xl transition-all hover:-translate-y-1 hover:border-red-500/30 hover:shadow-red-500/10 group"
+                >
+                  <p className="text-[9px] font-bold uppercase tracking-widest text-white/40 mb-1">
+                    Plataforma desarrollada e impulsada por
+                  </p>
+                  <p className="text-sm font-black uppercase tracking-widest text-red-500 group-hover:text-red-400 transition-colors">
+                    Torres Ingeniería
+                  </p>
+                </a>
               </div>
             </div>
           </footer>
